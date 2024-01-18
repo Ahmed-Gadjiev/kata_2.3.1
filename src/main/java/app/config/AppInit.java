@@ -1,4 +1,4 @@
-package web.config;
+package app.config;
 
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -18,7 +18,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
                 WebConfig.class
         };
     }
-
 
     /* Данный метод указывает url, на котором будет базироваться приложение */
     @Override
