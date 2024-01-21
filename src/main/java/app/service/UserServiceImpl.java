@@ -4,9 +4,11 @@ import app.dao.UserDao;
 import app.model.User;
 import org.springframework.stereotype.Service;
 
+import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
     UserDao userDao;
 
@@ -15,27 +17,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public void add(User user) {
         userDao.add(user);
     }
 
     @Override
-    public User getById(long id) {
-        return userDao.getById(id);
+    public User get(long id) {
+        return userDao.get(id);
     }
 
     @Override
+    @Transactional
     public void delete(long id) {
         userDao.delete(id);
     }
 
     @Override
+    @Transactional
     public void update(Long id, User newUser) {
         userDao.update(id, newUser);
     }
 
     @Override
-    public List<User> listUsers() {
-        return userDao.listUsers();
+    public List<User> getAll() {
+        return userDao.getAll();
     }
 }
